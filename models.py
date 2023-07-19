@@ -1,6 +1,10 @@
 from __future__ import annotations
 from internal_modules import Base
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import (
+    Mapped,
+    mapped_column,
+    relationship
+)
 from sqlalchemy import ForeignKey
 from typing import List
 import datetime
@@ -32,3 +36,4 @@ class Venta(Base):
 
     cliente: Mapped[Cliente] = relationship(back_populates='ventas')
     articulo: Mapped[Articulo] = relationship(back_populates='ventas')
+

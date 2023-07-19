@@ -1,6 +1,6 @@
 nombre,apellido,producto,cantidad,precio
-Pepe,Rdguez,Boligrafo,1,0.25
-Manolo,Devesa,Goma,3,0.25
-Maria,Santos,Lapiz,7,0.3
-Manuel,Santos,Folio,100,0.03
-Andres,Rdguez,Estuche,8,20.0
+Pepe,Rdguez,Boligrafo,1.0,0.25
+Manolo,Devesa,Boligrafo,3.0,0.25
+Maria,Santos,Lapiz,7.2,0.3
+Maria,Santos,Folio,100.0,0.03
+Pepe,Rdguez,Folio,8.0,0.03

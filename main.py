@@ -14,8 +14,8 @@ db = DataBase(
     port='5432',
     echo=True
 )
-
 db.create_all()
+
 # %%
 ROOT = os.path.dirname(__file__)
 data = read_csv(os.path.join(ROOT, 'data.csv'))
@@ -23,6 +23,7 @@ session = db.get_session()
 
 ## Creación de instancias
 # %%
+transactions = []
 for index, row in data.iterrows():
     t = Venta(
         cliente=Cliente(
@@ -36,7 +37,6 @@ for index, row in data.iterrows():
         ),
         cantidad=row['cantidad']
     )
-    session.add(t)
+    transactions.append(t)
 # %%
-# %%
-session.commit()
+db.commit_transactions(transactions=transactions)

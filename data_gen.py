@@ -1,11 +1,11 @@
 import pandas as pd
 
 data = {
-    "nombre": ["Pepe", "Manolo", "Maria", "Manuel", "Andres"],
+    "nombre": ["Pepe", "Manolo", "Maria", "Maria", "Pepe"],
     "apellido": ["Rdguez", "Devesa", "Santos", "Santos", "Rdguez"],
-    "producto": ["Boligrafo", "Goma", "Lapiz", "Folio", "Estuche"],
-    "cantidad": [1, 3, 7, 100, 8],
-    "precio": [0.25, 0.25, 0.30, 0.03, 20]
+    "producto": ["Boligrafo", "Boligrafo", "Lapiz", "Folio", "Folio"],
+    "cantidad": [1, 3, 7.2, 100, 8],
+    "precio": [0.25, 0.25, 0.30, 0.03, 0.03]
 }
 
 df = pd.DataFrame(data=data)
