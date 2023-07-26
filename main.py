@@ -6,20 +6,21 @@ from models import Cliente, Articulo, Venta
 from pandas import read_csv
 
 db = DataBase(
-    engine_name='postgresql',
-    user='test_user',
-    pwd='triple',
-    db_name='db_database_workshop',
+    driver_name='postgresql',
+    username='test_user',
+    password='triple',
     host='localhost',
     port='5432',
+    database='db_database_workshop',
     echo=True
 )
-db.create_all()
-
+# db.create_all()
+session = db.get_session()
+# %%
+a1 = Articulo.as_unique(session=session, producto='boli', precio=0.25)
 # %%
 ROOT = os.path.dirname(__file__)
 data = read_csv(os.path.join(ROOT, 'data.csv'))
-session = db.get_session()
 
 ## Creación de instancias
 # %%
@@ -37,6 +38,9 @@ for index, row in data.iterrows():
         ),
         cantidad=row['cantidad']
     )
-    transactions.append(t)
+    t = session.merge(t)
+    session.add(t)
+# %%
+session.commit()
 # %%
 db.commit_transactions(transactions=transactions)

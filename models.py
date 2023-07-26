@@ -6,7 +6,7 @@ from sqlalchemy.orm import (
     relationship
 )
 from sqlalchemy import ForeignKey
-from typing import List
+from typing import Any, List
 import datetime
 
 class Cliente(Base):
@@ -36,4 +36,9 @@ class Venta(Base):
 
     cliente: Mapped[Cliente] = relationship(back_populates='ventas')
     articulo: Mapped[Articulo] = relationship(back_populates='ventas')
+
+    # def __init__(self, cliente: Cliente, articulo: Articulo, **kw):
+    #     super.__init__(self, **kw)
+    #     self.cliente_id = cliente.id
+    #     self.articulo_id = articulo.producto
 
